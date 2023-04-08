@@ -13,7 +13,10 @@
 
 \documentclass[12pt]{report}	% The documentclass must be ``report''.
 
+\usepackage[T1]{fontenc}
+
 \usepackage{../utdiss3}  		% Dissertation package style file.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,7 +33,7 @@
 \usepackage{graphicx}           % Including graphics
 \usepackage{cite}         	% 
 \usepackage{url}		% Allows good typesetting of web URLs.
-%\usepackage{draftcopy}		% Uncomment this line to have the
+\usepackage{draftcopy}		% Uncomment this line to have the
 				% word, "DRAFT," as a background
 				% "watermark" on all of the pages of
 				% of your draft versions. When ready
@@ -41,12 +44,9 @@
 
 \graphicspath{{figs/}}          % place figs in separate directory
 
-\author{Jay Richard Johnson}  	% Required
+\author{Steve Han}  	% Required
 
-\address{204 E. Dean Keeton St.\\ Austin, Texas 78712}  % Required
-
-\title{Writing a Master's Thesis with \LaTeX{} at
-		the University of Texas at Austin}
+\title{Towards Large-scale Humanoid Demonstration Data Using VR Headsets}
                                                     % Required
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,7 +73,7 @@
 % 
 %
 \supervisor
-	{Johannes Kepler}
+	{Yuke Zhu}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -88,7 +88,7 @@
 %
 %
 \committeemembers
-	{Isaac Newton}
+	{Etienne Vouga}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -125,8 +125,8 @@
 % (remove the % in front of) the following two command lines (the ones
 % that have the \ as their second character).
 %
-\degree{MASTER OF SCIENCE IN ENGINEERING}
-\degreeabbr{M.S.E.}
+\degree{MASTER OF SCIENCE IN COMPUTER SCIENCE}
+\degreeabbr{MSCompSci}
 
 % Uncomment the line below that corresponds to the type of master's
 % document you are writing.
@@ -235,9 +235,6 @@
 
 \begin{document}
 
-\copyrightpage          % Produces the copyright page.
-
-
 %
 % NOTE: In a doctoral dissertation, the Committee Certification page
 %		(with signatures) is BEFORE the Title page.
@@ -256,20 +253,13 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Dedication and/or epigraph are optional, but must occur here.      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\begin{dedication}
-\index{Dedication@\emph{Dedication}}%
-Dedicated to my fellow UT graduate students.
-\end{dedication}
-
 
 \begin{acknowledgments}		% Optional
 \index{Acknowledgments@\emph{Acknowledgments}}%
-    This template was made by Craig William McCluskey. I've only made minor adjustments.
-    He thanks the multitudes of people who helped him.
+Thanks to Mingyo Seo and Yuke Zhu for the project idea. 
+Thanks to Mingyo Seo for creating the simulation, training the baselines, and adapting the whole body control code.
+Thanks to Kyutae Sim for helping with the data collection.
+Thanks to Carlos Isaac Gonzalez and Seung Hyeon Bang for help with the real robot experiments.
 \end{acknowledgments}
 
 
@@ -281,19 +271,7 @@ Dedicated to my fellow UT graduate students.
 \utabstract
 \index{Abstract}%
 \indent
-This document has the form of a ``fake'' masters thesis 
-in order to provide an example of such, but it is actually a
-copy of Miguel Lerma's documentation for the Mathematics
-Department Computer Seminar of 25 March 1998 updated in July 2001
-and following by Craig McCluskey to meet the March 2001
-requirements of the Graduate School. 
-
-This document and its source file show to write a Masters thesis using \LaTeX{} and the
-utdiss3 package. 
-
-It includes updates written by Jay Johnson in 2019 to meet new guidelines by the Graduate School
-and make adjustments based on changes to the TeX live distribution.
-
+In our modern world that is designed by humans and for humans, the morphology of humanoid robots makes them the perfect platform for a wide range of applications. However, due to the complexity of humanoid robots and the shortage of demonstration data, research in robot learning for humanoids is scarce. In this thesis, I present a VR interface for collecting human demonstrations for humanoid robots in both simulation and reality. I propose that by embedding this data collection mechanism in VR video games, we can amass a large scale dataset of high quality human demonstrations that can drive the development of a future generation of autonomous humanoids. To illustrate the feasibility of this idea, I collect a small dataset on toy tasks in simulation and real robot using the interface. I then show that an imitation learning policy trained on the demonstrations can be deployed with a reasonable success rate.
 
 
 \tableofcontents   % Table of Contents will be automatically
@@ -319,15 +297,13 @@ and make adjustments based on changes to the TeX live distribution.
 %
 \include{content/chapter-introduction}
 
-\include{content/chapter-instructions}
+%\include{content/chapter-instructions}
 
-\include{content/chapter-howtouse}
+%\include{content/chapter-makingbib}
 
-\include{content/chapter-makingbib}
+%\include{content/chapter-tables+figs}
 
-\include{content/chapter-tables+figs}
-
-\include{content/chapter-math}
+%\include{content/chapter-math}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -385,25 +361,5 @@ and make adjustments based on changes to the TeX live distribution.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Vita page.							     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{vita}
-Craig William McCluskey
-was born in Minneapolis, Minnesota on 20 May 1950, the son of
-Dr. William R. McCluskey and Lucilla W. McCluskey.  He received the Bachelor
-of Science degree in Engineering from the California Institute of Technology
-and was commissioned an Officer in the United States Air Force in 1971.
-He entered active duty in October, 1971, and was stationed in Denver, Colorado,
-Colorado Springs, Colorado, Panama City, Florida, and Sacramento, California.
-He separated from the USAF in 1975 and worked as an engineer for several small
-electronics companies in California before moving to Colorado Springs, Colorado
-to work for Hewlett-Packard in 1979. He left Hewlett-Packard in 1989 and joined
-a small company based in Herndon, Virginia, working out of his house as a
-``remote'' engineer designing parts of the Alexis satellite for Los Alamos
-National Laboratories. Laid off when his portion of the satellite was
-completed, he applied to the University of Texas at Austin for enrollment
-in their physics program. He was accepted and started graduate studies in
-August, 1991.
-
-\end{vita}
 
 \end{document}
