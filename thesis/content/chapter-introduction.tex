@@ -1,64 +1,20 @@
 \chapter{Introduction}
-\index{Introduction@\emph{Introduction}}%
+
+Robotics, Machine Learning (ML), and Virtual Reality (VR) are some of the most exciting and rapidly developing fields in technology today. It is perhaps no surprise that the marriage of these three technologies can have far-reaching impacts. Using VR, humans can control robots in an immersive simulation, or they can remotely teleoperate robots to perform dangerous tasks. The trajectories from the human demonstrations can then be used to train ML policies, which can enable robots to perform the tasks autonomously. 
+However, due to the complexity of humanoid robots, the lack of large-scale data for training, and the difficulty of creating an interface for humans to control robots, there has been no research on teaching humanoid robots to perform locomotion and bi-manipulation tasks, as far as I'm aware. Also, although there is a large body of work on teleoperating robots using VR  and motion capture devices, I'm not aware of any attempt to use the teleoperation data to train a neural network policy to control the robot autonomously. Furthermore, these 
+"telepresence" systems are usually very complicated and require expensive hardware, which makes them unsuitable for scaling up data collection in a distributed manner. 
+
+In this thesis, I present a simple VR interface that uses the commonplace Oculus Quest 2 headset. I believe that compared to other humanoid teleoperation systems, the software architecture used in this project is uniquely positioned to be both adaptable to video games and accessible to the public. Although the interface is simple, it is nonetheless powerful enough to teach a humanoid robot to perform some simple tasks. In simulation, I hypothesize that this setup can be incorporated in VR video games to massively scale up data collection. VR games contain rich interactions with the virtual world, have built-in rewards to label successes and failures, and integrate with powerful physical simulation engines. As a result, they are perfect for collecting human demonstrations to potentially teach humanoids to perform the same tasks in the real world. For example, there are currently VR games that require players to cook in a kitchen, which is a valuable skill for humanoids to learn. In addition, on the real robot side, we could potentially distribute the data collection by letting users with VR headsets control the robot remotely. 
+\section{Motivation}
+\subsection{Large-scale Robot Learning Dataset}
+
+
+
+\subsection{Humanoid Robots}
+Humanoid robots have gained a lot of attention in recent years. After Boston Dynamic's Atlas made headlines by jumping and dancing with human-like dexterity, Tesla also entered the market by developing the cheap and mass-producible humanoid named Optimus. If the cost of the robot could be kept below \$20,000 like Elon Musk promised [cite], we would be entering a world where general purpose humanoids could replace humans for unsafe and repetitive tasks. Many startups are also getting a lot of funding recently to pursue humanoid robots. Apptronik is an Austin-based startup that aims to create humanoids that can work alongside people. One of their prototypes, DRACO 3, is the platform used for this thesis.
+
+This interest in humanoids is justified by their versatility and social capabilities. They can be used as personal assistants, as companions for the elderly, as workers in factories, and as first responders in disaster zones. The morphology of humanoids enables them to easily adapt to the human-centered world that we live in. Every tool, every environment, and every task in our society is designed for the human form. It wouldn't make sense to redesign power tools or get rid of stairs for the convenience of robots, so creating robots that can take advantage of the existing infrastructure made for humans is extremely valuable. 
 
 \section{Background}
-\index{History of This Package@\emph{History of This Package}}%
 
-In 1991 the \texttt{utdiss} package was written by Young U. Ryu 
-\index{Young U. Ryu}%
-in order to be used in the preamble of \LaTeX{} doctoral dissertation
-files at the University of Texas at Austin. 
-\index{University of Texas at Austin}%
-Since then some changes have occured, the most important one
-being the introduction of a new version of \LaTeX{} 
-\index{LaTeX@{\LaTeX{}}}%
-called \LaTeXe{}. 
-\index{LaTeX2e@{\LaTeXe{}}}%
-
-In order to partially adapt the utdiss package to this new version
-of \LaTeX{}, Miguel Lerma introduced a few modifications in it,
-and his document, \textit{How to Write a Doctoral Dissertation
-with \LaTeX{}}, served as a test for it. His new package was
-called \texttt{utdiss1}.
-\index{utdiss1@\texttt{utdiss1}}%
-
-With the significant changes in style introduced by the Graduate
-School in the Spring of 2001, as well as  my need to write a
-dissertation myself, I extended Miguel Lerma's package to meet
-these new requirements. As in Miguel Lerma's case, this document
-serves as a test for it, but it is, in addition, intended as a
-template for others to use in writing their own dissertations.
-The new package is called \texttt{utdiss2}.
-\index{utdiss2@\texttt{utdiss2}}%
-
-\section{Revised Philosophy for This Package}
-\index{Revised Philosophy for This Package@\emph{Revised Philosophy
-	for This Package}}%
-
-Since the source file of this document is intended to be used by students
-writing their own dissertations, this document does not display all of the
-comments regarding usage of previous versions. It has, instead, transferred
-these comments to their respective places in the source file so someone
-editing their own copy of the source file to produce their own dissertation
-will see the comments where they are needed. It may be helpful to print out
-a copy of the source file along with the PostScript version of the document
-so the two can be studied side-by-side.
-
-\textbf{Note:} In spite of the effort to accommodate the package to
-the requirements of the University, it is not possible to guarantee
-that it will always work, and the author of the dissertation remains
-responsible for checking that such requirements are actually fulfilled
-by his/her final work. 
-
-The standard caveat applies:
-
-\begin{quote}
-\index{guarantee}%
-This template package is provided and licensed ``as is'' without warranty
-of any kind, either expressed or implied, including, but not limited to,
-the implied warranties of merchantability and fitness for a particular
-purpose. Yadda, yadda, yadda, \ldots
-\end{quote}
-
-In case of any problem with the use of \texttt{utdiss2}, send me email
-at \url{mccluskey@mail.utexas.edu}.
+Given the rapid development of humanoid hardware, cracking the code of human-like locomotion is the next big challenge. The most common approach is to use a combination of inverse kinematics and inverse dynamics to generate the joint torques that will move the robot to the desired pose. However, this approach is limited by the complexity of the inverse kinematics and inverse dynamics algorithms. Inverse kinematics is a non-convex optimization problem, and the inverse dynamics problem is also non-convex due to the non-linear constraints. This makes it difficult to find the optimal solution, and the solution is often suboptimal.

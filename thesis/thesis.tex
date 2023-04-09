@@ -46,7 +46,7 @@
 
 \author{Steve Han}  	% Required
 
-\title{Towards Large-scale Humanoid Demonstration Data Using VR Headsets}
+\title{Towards Large-scale Humanoid Demonstration Data Collection Using VR Headsets}
                                                     % Required
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -256,6 +256,7 @@
 
 \begin{acknowledgments}		% Optional
 \index{Acknowledgments@\emph{Acknowledgments}}%
+
 Thanks to Mingyo Seo and Yuke Zhu for the project idea. 
 Thanks to Mingyo Seo for creating the simulation, training the baselines, and adapting the whole body control code.
 Thanks to Kyutae Sim for helping with the data collection.
@@ -271,7 +272,7 @@ Thanks to Carlos Isaac Gonzalez and Seung Hyeon Bang for help with the real robo
 \utabstract
 \index{Abstract}%
 \indent
-In our modern world that is designed by humans and for humans, the morphology of humanoid robots makes them the perfect platform for a wide range of applications. However, due to the complexity of humanoid robots and the shortage of demonstration data, research in robot learning for humanoids is scarce. In this thesis, I present a VR interface for collecting human demonstrations for humanoid robots in both simulation and reality. I propose that by embedding this data collection mechanism in VR video games, we can amass a large scale dataset of high quality human demonstrations that can drive the development of a future generation of autonomous humanoids. To illustrate the feasibility of this idea, I collect a small dataset on toy tasks in simulation and real robot using the interface. I then show that an imitation learning policy trained on the demonstrations can be deployed with a reasonable success rate.
+Our world is designed by humans, for humans. This makes humanoid robots the perfect general-purpose platform to automate repetitive or dangerous tasks done by humans. However, due to the complexity of humanoid robots and the shortage of demonstration data, research in robot learning for humanoids is scarce. To address these challenges, I present a VR interface for collecting human demonstrations for humanoid robots in both simulation and reality. The demonstrations are then used to train an imitation learning algorithm that uses an underlying controller to abstract away the complexity of whole-body control. I further propose that by embedding this data collection mechanism in VR video games, we can amass a large-scale dataset of high quality human demonstrations that can drive the development of future autonomous humanoids. To illustrate the feasibility of this idea, I collect a small dataset on toy tasks in simulation and a real robot using the interface I developed. I then show that the trained policy can be deployed with a reasonable success rate.
 
 
 \tableofcontents   % Table of Contents will be automatically
@@ -296,6 +297,11 @@ In our modern world that is designed by humans and for humans, the morphology of
 % dissertation).
 %
 \include{content/chapter-introduction}
+\include{content/chapter-background}
+\include{content/chapter-vr-interface}
+\include{content/chapter-real-robot}
+\include{content/chapter-simulation}
+\include{content/chapter-future-works}
 
 %\include{content/chapter-instructions}
 
