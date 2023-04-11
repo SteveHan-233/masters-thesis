@@ -1,0 +1,80 @@
+\begin{thebibliography}{10}
+
+\bibitem{Akgn2012KeyframebasedLF}
+Barış Akg{\"u}n, Maya Cakmak, Karl Jiang, and Andrea~Lockerd Thomaz.
+\newblock Keyframe-based learning from demonstration.
+\newblock {\em International Journal of Social Robotics}, 4:343--355, 2012.
+
+\bibitem{Billard:2013}
+A.~Billard and D.~Grollman.
+\newblock {R}obot learning by demonstration.
+\newblock {\em Scholarpedia}, 8(12):3824, 2013.
+\newblock revision \#138061.
+
+\bibitem{chang2020semantic}
+Matthew Chang, Arjun Gupta, and Saurabh Gupta.
+\newblock Semantic visual navigation by watching youtube videos, 2020.
+
+\bibitem{atlas}
+Boston Dynamics\text{, YouTube}.
+\newblock Do you love me?
+\newblock \url{https://www.youtube.com/watch?v=fn3KWM1kuAw}, 2020.
+
+\bibitem{brohan2022rt1}
+Anthony~Brohan et~al.
+\newblock Rt-1: Robotics transformer for real-world control at scale, 2022.
+
+\bibitem{jiang2022vima}
+Yunfan Jiang, Agrim Gupta, Zichen Zhang, Guanzhi Wang, Yongqiang Dou, Yanjun
+  Chen, Li~Fei-Fei, Anima Anandkumar, Yuke Zhu, and Linxi Fan.
+\newblock Vima: General robot manipulation with multimodal prompts, 2022.
+
+\bibitem{mandlekar2018roboturk}
+Ajay Mandlekar, Yuke Zhu, Animesh Garg, Jonathan Booher, Max Spero, Albert
+  Tung, Julian Gao, John Emmons, Anchit Gupta, Emre Orbay, Silvio Savarese, and
+  Li~Fei-Fei.
+\newblock Roboturk: A crowdsourcing platform for robotic skill learning through
+  imitation, 2018.
+
+\bibitem{oculus-privacy}
+Meta.
+\newblock Oculus privacy policy for oculus account users, 2022.
+
+\bibitem{openai2023gpt4}
+OpenAI.
+\newblock Gpt-4 technical report, 2023.
+
+\bibitem{Schulman2013LearningFD}
+John Schulman, Jonathan Ho, Cameron Lee, and P.~Abbeel.
+\newblock Learning from demonstrations through the use of non-rigid
+  registration.
+\newblock In {\em International Symposium of Robotics Research}, 2013.
+
+\bibitem{sivakumar2022robotic}
+Aravind Sivakumar, Kenneth Shaw, and Deepak Pathak.
+\newblock Robotic telekinesis: Learning a robotic hand imitator by watching
+  humans on youtube, 2022.
+
+\bibitem{teslabot}
+Tesla\text{, YouTube}.
+\newblock Tesla \text{AI} day 2022.
+\newblock \url{https://www.youtube.com/watch?v=fn3KWM1kuAw}, 2022.
+
+\bibitem{zhang2018deep}
+Tianhao Zhang, Zoe McCarthy, Owen Jow, Dennis Lee, Xi~Chen, Ken Goldberg, and
+  Pieter Abbeel.
+\newblock Deep imitation learning for complex manipulation tasks from virtual
+  reality teleoperation, 2018.
+
+\bibitem{zhu2023viola}
+Yifeng Zhu, Abhishek Joshi, Peter Stone, and Yuke Zhu.
+\newblock Viola: Imitation learning for vision-based manipulation with object
+  proposal priors, 2023.
+
+\bibitem{zhu2022robosuite}
+Yuke Zhu, Josiah Wong, Ajay Mandlekar, Roberto Martín-Martín, Abhishek Joshi,
+  Soroush Nasiriany, and Yifeng Zhu.
+\newblock robosuite: A modular simulation framework and benchmark for robot
+  learning, 2022.
+
+\end{thebibliography}

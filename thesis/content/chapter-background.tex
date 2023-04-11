@@ -1,0 +1,17 @@
+\chapter{Background}
+
+Now that the motivation of the project has been discussed, we will introduce the formulations used in this work. Then, we will survey the existing literature that relates to our goal.
+\section{Imitation Learning}
+\section{Whole-body Control}
+\section{Related Work}
+
+\subsection{Interface}
+There are three main categories of demonstration interfaces \cite{Billard:2013}. First, we can directly record the kinematics of human motions. Using either a 
+
+There are multiple ways to collect demonstrations for fixed-based robots in existing literature. First, a SpaceMouse can be used to control the position and orientation of the robot end effector \cite{zhu2022robosuite}. However, it is unintuitive for people to translate a 3D motion into the push and turn of a button, especially if there is a need to control 2 arms at once. In addition, since SpaceMouse controls the velocity instead of position, it can be difficult for tasks involving precision. Second, humans can directly hold the robot to move it in a desired trajectory by applying force \cite{Akgn2012KeyframebasedLF} \cite{Schulman2013LearningFD}. This is called kinesthetic teaching, but it requires the human to come into the frame to control the robot, which becomes a problem when the policy is trained on vision data. To avoid this, we can also build a replica of the robot and move the replica manually, while the main robot follows its trajectory. However, 
+\subsection{Videos}
+
+https://arxiv.org/abs/2104.07810
+There are proposals to massively scale up human demonstration data using YouTube videos. For example, \cite{chang2020semantic} shows that by watching YouTube videos of house tours, an off-policy Q-learning algorithm can learn the semantic cues in a human environment to improve navigation efficiency. To make it possible to learn dexterous manipulation skills from YouTube videos, \cite{sivakumar2022robotic} trained a neural network to retarget human finger poses from a video to a robotic hand. 
+
+Given the rapid development of humanoid hardware, cracking the code of human-like locomotion is the next big challenge. The most common approach is to use a combination of inverse kinematics and inverse dynamics to generate the joint torques that will move the robot to the desired pose. However, this approach is limited by the complexity of the inverse kinematics and inverse dynamics algorithms. Inverse kinematics is a non-convex optimization problem, and the inverse dynamics problem is also non-convex due to the non-linear constraints. This makes it difficult to find the optimal solution, and the solution is often suboptimal.
