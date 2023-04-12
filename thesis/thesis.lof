@@ -1,0 +1,11 @@
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The proposed interface can be used to teleoperate a simulation environment (left) and a real robot (right).}}{2}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces An overview of the hierarchical learning framework used in this work. Diagram credit to Mingyo. First, we get the desired hand trajectories and walking commands from the demonstrator. Second, we send these commands to the whole-body controller to produce joint-torque actions of the robot. Third, a behavior cloning policy is trained to imitate the human demonstrations. }}{4}{}%
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architecture for the VR interface}}{18}{}%
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}

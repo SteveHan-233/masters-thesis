@@ -9,4 +9,32 @@ The requirements for the interface are as follows:
     \item The latency should be low and the computation speed should be fast so that the wearer can provide demonstrations with ease. The computation resource consumption should be low because the simulation and whole-body controller are resource-intensive.
 \end{enumerate}
 
-Initially, I created a 
+First, an overview of the architecture is given. Then, I justify some of the design decisions. Finally, I analyze the performance of the system.
+
+\section{Architecture}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{architecture_diagram.jpeg}
+	\caption{Architecture for the VR interface}
+    \label{fig:vr-interface}
+\end{figure}
+
+Figure \ref{fig:vr-interface} describes the software architecture. The VR interface code written in C++ runs on a separate laptop, which is connected to either the simulation desktop or the robot control station for the real robot. We use OpenVR (implemented in SteamVR) and ALVR (Air Light VR) for the communication between the laptop and the headset. OpenVR is a low-level API for VR applications designed to support a wide range of VR devices. ALVR is an open-source project that allows streaming Steam VR games from the laptop to the headset via Wi-Fi. It implements technologies such as Asynchronous Timewarp and Fixed Foveated Rendering for a smoother experience. ZMQ is an asynchronous messaging library that simplies message-passing between different programs or devices. 
+
+For the simulation, we use Mujoco with Python binding and Robosuite. We first render the scene using a virtual stereoscopic camera that is adjusted to match the interpupillary distance of the VR headset. Then, the rendered pixels are copied from the GPU to CPU and sent to the VR interface using ZMQ and ethernet. The interface code listens to the images and writes them into a GPU texture used by OpenVR. Finally, SteamVR and ALVR transmits the images through a router and displays them in the VR headset. At the same time, the interface polls the VR headset for the poses of the headset and controllers through OpenVR. It transforms the controller poses to the local frame of the headset, and they are then mapped to the poses of the robot hands in the robot's local frame. The latter mapping involves aligning the rotation axes of the controller with the axes used in the simulation. Let $R_t$ be the transformation between the VR axes and the simulation axes, $R_{vr}$ be rotation of the controller from its natural orientation, and $R_{sim}$ be the desired rotation to be applied to the robot hands. Their relation can be expressed as 
+$$
+R_{sim} = R_t^{-1} R_{vr} R_t
+$$
+The transformed hand poses are then published continuously using a ZMQ pub socket. When the simulation needs a VR command, it pulls the most recent command from the queue and sends it to the whole-body controller. 
+
+
+
+
+\section{Design Choices}
+
+\subsection{OpenVR}
+Initially, I created a website based on WebXR and JavaScript to stream controller poses over the internet. I wanted to improve the latency by keeping the connection within a local network, but I needed to set up HTTPS certificates in the campus lab, which was difficult. After getting tired of tunneling my connection over the internet, I decided to pursue a less hacky approach. 
+I could use the native Oculus SDK, but this would limit the option to change VR systems in the future. Unity is a good option for cross-platform compatibility, but since I only need to stream images and controller poses, it is an overkill. I decided to dig deeper in 
+
+\subsection{Asynchronous Message Passing}
