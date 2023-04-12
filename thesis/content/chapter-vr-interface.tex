@@ -1,0 +1,12 @@
+\chapter{VR Interface}
+
+In this chapter, I'll go into the implementation details of the VR interface. 
+The requirements for the interface are as follows:
+\begin{enumerate}
+    \item It needs to report the 6-DOF poses of left and right hands as well as additional buttons for locomotion and gripper control. 
+    \item Stereoscopic images need to be streamed and displayed on the VR headset to create depth perception for the wearer. 
+    \item It needs to connect to both the simulation codebase written in Python and the real-robot controller written in C++. 
+    \item The latency should be low and the computation speed should be fast so that the wearer can provide demonstrations with ease. The computation resource consumption should be low because the simulation and whole-body controller are resource-intensive.
+\end{enumerate}
+
+Initially, I created a 
