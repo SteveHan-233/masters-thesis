@@ -12,7 +12,7 @@ However, this is usually computationally expensive due to the requirement to run
 
 The specific imitation learning algorithm used in our work is Behaviorial Cloning with Recurrent Neural Networks (RNN) and Gaussian Mixture Models (GMM). RNN maintains information about the past and can be viewed as injecting the inductive bias of sequentiality. Namely, it preserves time translation invariance by using the same neural network weights at each time step \cite{battaglia2018relational}. GMM uses a mixture of Gaussians with different means to approximate a multimodal distribution, such as the multiple ways that a human may do a specific task.
 
-\section{Whole-body Control}
+\section{Whole-body Control (WBC)}
 
 Whole-body control is a robotics approach that aims to control the entire robot's body, including its arms, legs, torso, and head, to achieve a desired task.
 The specific form we are using is called implicit hierarchical whole-body controller \cite{Ahn2021VersatileLP}, which uses an implicit hierarchy of tasks to allow for different prioritization of control depending on whether the robot is performing locomotion or manipulation. For example, we would like the robot to prioritize foot motion over hand motion when the robot is walking.
