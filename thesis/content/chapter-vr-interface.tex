@@ -33,7 +33,10 @@ The setup for the real robot is similar. However, since the robot has a lot more
 \section{Design Choices}
 
 \subsection{OpenVR}
-Initially, I created a website based on WebXR and JavaScript to stream controller poses over the internet. I wanted to improve the latency by keeping the connection within a local network, but I needed to set up HTTPS certificates in the campus lab, which was difficult. After getting tired of tunneling my connection over the internet, I decided to pursue a less hacky approach. 
-I could use the native Oculus SDK, but this would limit the option to change VR systems in the future. Unity is a good option for cross-platform compatibility, but since I only need to stream images and controller poses, it is an overkill. I decided to dig deeper in 
+
+Initially, I created a website based on WebXR and JavaScript to stream controller poses over the internet. I wanted to improve the latency by keeping the connection within a local network, but I needed to set up HTTPS certificates in the campus lab, which was difficult. After getting tired of tunneling my connection over the internet, I decided to pursue a more low-level approach. 
+I could use the native Oculus SDK, but this would limit the option to change VR systems in the future. Unity is a good option for cross-platform compatibility, but since I only need to stream images and controller poses, it is an overkill. I also don't think Unity exposes the low-level functionality to directly show the stereoscopic images. Since Unity uses the low-level OpenVR API, I decided to use it directly. Although a newer API called OpenXR is gaining steam, I feel that the performance benefits of OpenXR doesn't justify its complexity compared to OpenVR. 
+
+Using OpenVR has several advantages. First, it has great performance since video games depend on it, which means that it has direct support from VR headset manufacturers. Second, it delegates the work of video streaming to SteamVR-compatible software such as ALVR. Third, it works on a variety of Operating Systems and targets many VR headsets. In comparison to \cite{arunachalam2022holodex} 
 
 \subsection{Asynchronous Message Passing}
