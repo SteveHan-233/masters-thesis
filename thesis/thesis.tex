@@ -51,7 +51,7 @@
 %\title{Demonstrations for Robots in Immersive Virtual Reality}
 %\title{Towards Large-scale Humanoid Demonstration Data Collection Using VR Headsets}
 
-\title{VR Teleoperation Interface for Learning Loco-manipulation on Humanoid Robots}
+\title{VR Teleoperation Interface for Learning Loco-manipulation of Humanoid Robots}
                                                     % Required
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,10 +262,13 @@
 \begin{acknowledgments}		% Optional
 \index{Acknowledgments@\emph{Acknowledgments}}%
 
-Thanks to Mingyo Seo and Yuke Zhu for the project idea. 
-Thanks to Mingyo Seo for creating the simulation, training the baselines, and adapting the whole body control code.
-Thanks to Kyutae Sim for helping with the data collection.
-Thanks to Carlos Isaac Gonzalez and Seung Hyeon Bang for help with the real robot experiments.
+I would like to thank Mingyo Seo and Yuke Zhu for the project idea as well as the guidance they provided along the way. Many of the motivations introduced in Chapter 1 are based on their ideas.
+
+Additionally, acknowledgment is given to Mingyo Seo for creating the simulation, designing the neural network, training the policies, and adapting the whole body control code. All the results in Chapter 5 are obtained by him.
+
+Chapter 4 would not have been possible without Carlos Isaac Gonzalez and Seung Hyeon Bang, who shared their hardware setup for us to conduct real-robot experiments and helped us when things went awry.
+
+I would also like to give thanks to Kyutae Sim for helping with the data collection.
 \end{acknowledgments}
 
 
@@ -277,7 +280,7 @@ Thanks to Carlos Isaac Gonzalez and Seung Hyeon Bang for help with the real robo
 \utabstract
 \index{Abstract}%
 \indent
-Our world is designed by humans, for humans. This makes humanoid robots the perfect general-purpose platform to automate repetitive or dangerous tasks done by people. However, due to the complexity of humanoid robots and the shortage of demonstration data, research in robot learning for humanoids is scarce. To address these challenges, I present a VR interface named TRILL (TeleopeRation Interface for Learning Loco-manipulation) for collecting human demonstrations for humanoid robots in both simulation and reality. The demonstrations are then used to train a baseline imitation learning algorithm that uses an underlying controller to abstract away the complexity of whole-body control. I further propose that by embedding this data collection mechanism in VR video games, we can amass a large-scale dataset of high quality human demonstrations that can drive the development of future autonomous humanoids. To illustrate the feasibility of this idea, we collect a small dataset on toy tasks in simulation and a real robot using the VR interface. We then show that the trained policy can be deployed with a reasonable success rate.
+Our world is designed by humans, for humans. This makes humanoid robots the perfect general-purpose platform to automate repetitive or dangerous tasks done by people. However, due to the complexity of humanoid robots and the shortage of demonstration data, research in robot learning for humanoids is scarce. To address these challenges, I present a VR interface named TRILL (TeleopeRation Interface for Learning Loco-manipulation) to collect human demonstrations for humanoid robots in both simulation and reality. The demonstrations are then used to train a baseline imitation learning algorithm that uses an underlying controller to abstract away the complexity of whole-body control. I further propose that by embedding this data collection mechanism in VR video games, we can amass a large-scale dataset of high quality human demonstrations that can drive the development of future autonomous humanoids. To illustrate the feasibility of this idea, we collect a small dataset on toy tasks in simulation and a real robot using the VR interface. We then show that the trained policy can be deployed in simulation with a reasonable success rate.
 
 
 \tableofcontents   % Table of Contents will be automatically

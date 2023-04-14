@@ -61,7 +61,7 @@ The performance of the VR Interface is acceptable. Using asynchronous message pa
 \begin{figure}
 	\centering
 	\includegraphics[width=15em]{arrows.png}
-	\caption{The robot hands takes time to reach the desired controller poses (represented by arrows).}
+	\caption{The robot hands takes time to reach the desired controller poses (represented by the floating red and blue arrows).}
     \label{fig:arrows}
 \end{figure}
 
@@ -70,7 +70,7 @@ Another big issue with the current setup is speed. The current simulation loop c
 \begin{table}[h]
 \scriptsize
 \begin{center}
-\caption{Simulation performance numbers. The left column denotes whether OpenCV or the VR headset is used to display the image and the number of PGS iterations per time step. The last row shows a manipulation task without locomotion. In each loop, Mujoco runs 25 times, WBC runs 5 times, and rendering runs once. The first three columns measure the time taken in each run, the fourth column shows the total time taken by each loop, while the last three columns show their percent contribution to total loop time considering the number of times they run.  }
+\caption{Simulation performance numbers. The left column denotes whether OpenCV or the VR headset is used to display the image and the number of PGS iterations per time step. The last row shows a manipulation task without locomotion. In each loop, Mujoco runs 25 times, WBC runs 5 times, and rendering runs once. The first three columns measure the time taken in each run, the fourth column shows the total time taken by each loop, while the last three columns show their percent contribution to total loop time.  }
 \vskip 10pt
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline

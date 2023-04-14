@@ -16,7 +16,7 @@ Figure \ref{fig:robot-architecture} shows the infrastructure for collecting demo
 The VR Interface script is the same as before, but more components are added to interface with the grippers, camera, and the robot-control desktop. The whole-body controller running on the desktop is a modified version of PnC \cite{Ahn2021VersatileLP}, named RPC (Robot Planning and Control), created by the hardware team. 
 
 When collecting demonstrations, the camera footage is streamed from the robot's stereo camera to the VR headset. Both RPC and the gripper interface subscribe to VR commands to execute desired actions. The data collection script then pulls robot states from RPC and camera footage from the camera script and saves the resulting data into an HDF5 file. The saved data is then post-processed and used to train the neural network. 
-During deployment, the observations (robot states and camera footage) are processed in real-time and fed into the neural network. The processing involves converting hands and feet poses to local frame of the robot and normalizing and resizing images. Then, the neural network inference is performed on the GPU laptop, and the output commands are issued to the grippers and robot. The output commands are restricted by a 3D bounding box to prevent extreme values that can damage the robot. 
+During deployment, the observations (robot states and camera footage) are processed in real-time and fed into the neural network. The processing involves converting hands and feet poses to local frame of the robot and normalizing and resizing images. Then, the neural network inference is performed on the GPU laptop, and the output commands are issued to the grippers and robot. To protect the robot, the output commands are restricted by a 3D bounding box, and the maximum arm movement speed is restricted. 
 
 \subsection{Streaming Images From Camera to VR}
 
@@ -35,11 +35,11 @@ Our Neural Network takes in the following inputs: stereoscopic images resized to
     \label{fig:pick-and-place}
 \end{figure}
 
-To train the network, 150 demonstrations are collected on a simple pick-and-place task involving grabbing a temperature gun and dropping it in a box, as shown in Figure \ref{fig:pick-and-place}.
+To train the network, 150 demonstrations are collected on a simple pick-and-place task involving grabbing a temperature gun and dropping it in a box, as shown in Figure \ref{fig:pick-and-place}. Since the hardware team is working on replacing the force-torque sensors in the robot's ankles, the robot cannot walk yet. Instead, the task only involves the robot balancing on two feet and doing manipulation with its hands. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=20em]{real-eval.png}
+	\includegraphics[width=15em]{real-eval.png}
     \caption{During evaluation, the robot usually knocks over the temperature gun before grasping it.}
     \label{fig:real-eval}
 \end{figure}
@@ -47,20 +47,20 @@ To train the network, 150 demonstrations are collected on a simple pick-and-plac
 	\centering
 	\includegraphics[width=\linewidth]{"Right hand orientation.png"}
 	\includegraphics[width=\linewidth]{"Right hand position.png"}
-    \caption{Plotting the desired vs actual position and orientation of the right hand during deployment. }
+    \caption{Plotting the desired (red) vs actual (blue) position and orientation of the right hand during deployment. }
     \label{fig:tracking-plot}
 \end{figure}
 
 
 However, the evaluation of the trained policy is not very successful. Out of 20 evaluations, the robot is only able to pick up the temperature gun in 1 episode. As shown in Figure \ref{fig:real-eval}, the robot fails to locate the object and often knocks it over. 
-We hypothesize that the tracking error of the whole-body controller is partially reponsible for the difficulty to learn precise manipulation. Figure \ref{fig:tracking-plot} shows tracking error of the right hand during deployment.
 
+We hypothesize that the tracking error of the whole-body controller is partially responsible for the difficulty to learn precise manipulation. Figure \ref{fig:tracking-plot} shows whole-body control's tracking error of the right hand during deployment. The red line is the desired pose, and the blue line is the actual pose. Each bump corresponds to a new episode, and the large spikes on the orientation are due to resetting the robot after a failed episode. Since the blue line changes as soon as the red line changes, we know that the tracking is very fast, unlike what we have in simulation. However, the steady-state error is quite large. In the $y$ direction, there can be an up to 10 centimeters error for the hand position. Steady-state error is caused by the lower weight assigned to the hand-tracking task in comparison to the center-of-mass task. In order to maintain balance, the whole-body controller refuses to extend the arm too far forward. This can be fixed by assigning a higher weight to the hand task, but this would trade off the stability of the robot. 
 
-We are currently working on debugging this issue, but unfortunately, due to the frequent need to repair the robot (see Figure \ref{fig:surgery} for one of the many robot "surgeries"), we are not able to solve it by the thesis due date. The difficulty of performing real-robot experiments on a humanoid platform is the very reason we started out with simulation. Indeed, we have gotten much better results in simulation.
+Nonetheless, the policy should learn to compensate for the tracking error, as it has done in simulation. We have also noticed that the policy doesn't vary its actions when the object is placed in different places. We are currently still working on debugging the neural network deployment, but unfortunately, due to the frequent need to repair the robot (see Figure \ref{fig:surgery} for one of the many robot "surgeries" we performed on the robot), we are not able to solve it by the thesis due date. However, the difficulty of performing real-robot experiments on a humanoid platform is the very reason we started out with simulation. Indeed, our method achieves much better results in simulation.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=20em]{surgery.jpeg}
-    \caption{During one the experiments, a rod end on the robot's ankle broke. Mingyo created a simulation to test out algorithms since hardware experiments are expensive. }
+	\includegraphics[width=15em]{surgery.jpeg}
+	\caption{During one the experiments, a rod end on the robot's ankle broke. }
     \label{fig:surgery}
 \end{figure}
