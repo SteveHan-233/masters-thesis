@@ -1,0 +1,19 @@
+\addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The proposed interface can be used to teleoperate a simulation environment (left) and a real robot (right).}}{2}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces An overview of the hierarchical learning framework used in this work. Diagram credit to Mingyo. First, we get the desired hand trajectories and walking commands from the demonstrator. Second, we send these commands to the whole-body controller to produce joint-torque actions of the robot. Third, a behavior cloning policy is trained to imitate the human demonstrations. }}{4}{}%
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Architecture for the VR interface}}{20}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The robot hands takes time to reach the desired controller poses (represented by the floating red and blue arrows).}}{26}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The infrastructure used to collect demonstraions and deploy policy on the real robot. Original diagram by Mingyo.}}{30}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 150 demonstrations of a simple pick-and-place task are collected. The egocentric view for some of the episodes are shown. }}{32}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces During evaluation, the robot usually knocks over the temperature gun before grasping it.}}{33}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Plotting the desired (red) vs actual (blue) position and orientation of the right hand during deployment. }}{34}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces During one the experiments, a rod end on the robot's ankle broke. }}{35}{}%
+\addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Frames from simulation evaluations. From top to bottom, we have opening the door, pushing the door, moving the pot, and placing the lid.}}{39}{}%
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
+\addvspace {10pt}
