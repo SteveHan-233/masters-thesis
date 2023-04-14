@@ -16,7 +16,7 @@ Figure \ref{fig:robot-architecture} shows the infrastructure for collecting demo
 The VR Interface script is the same as before, but more components are added to interface with the grippers, camera, and the robot-control desktop. The whole-body controller running on the desktop is a modified version of PnC \cite{Ahn2021VersatileLP}, named RPC (Robot Planning and Control), created by the hardware team. 
 
 When collecting demonstrations, the camera footage is streamed from the robot's stereo camera to the VR headset. Both RPC and the gripper interface subscribe to VR commands to execute desired actions. The data collection script then pulls robot states from RPC and camera footage from the camera script and saves the resulting data into an HDF5 file. The saved data is then post-processed and used to train the neural network. 
-During deployment, the observations (robot states and camera footage) are processed in real-time and fed into the neural network. The processing involves converting hands and feet poses to local frame of the robot and normalizing and resizing images. Then, the neural network inference is performed on the GPU laptop, and the output commands are issued to the grippers and robot. 
+During deployment, the observations (robot states and camera footage) are processed in real-time and fed into the neural network. The processing involves converting hands and feet poses to local frame of the robot and normalizing and resizing images. Then, the neural network inference is performed on the GPU laptop, and the output commands are issued to the grippers and robot. The output commands are restricted by a 3D bounding box to prevent extreme values that can damage the robot. 
 
 \subsection{Streaming Images From Camera to VR}
 
@@ -43,12 +43,24 @@ To train the network, 150 demonstrations are collected on a simple pick-and-plac
     \caption{During evaluation, the robot usually knocks over the temperature gun before grasping it.}
     \label{fig:real-eval}
 \end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{"Right hand orientation.png"}
+	\includegraphics[width=\linewidth]{"Right hand position.png"}
+    \caption{Plotting the desired vs actual position and orientation of the right hand during deployment. }
+    \label{fig:tracking-plot}
+\end{figure}
 
-However, the evaluation of the trained policy is not very successful. Out of 20 evaluations, the robot is only able to pick up the temperature gun in 1 episode. As shown in Figure \ref{fig:real-eval}, the robot fails to locate the object and often knocks it over. We are currently working on debugging this issue, but unfortunately, due to the frequent need to repair the robot (see Figure \ref{surgery} for one of the many robot "surgeries"), we are not able to solve it by the thesis due date. However, the difficulty of performing real-robot experiments on a humanoid platform is the very reason we started out with simulation. Indeed, we have gotten much better results in simulation.
+
+However, the evaluation of the trained policy is not very successful. Out of 20 evaluations, the robot is only able to pick up the temperature gun in 1 episode. As shown in Figure \ref{fig:real-eval}, the robot fails to locate the object and often knocks it over. 
+We hypothesize that the tracking error of the whole-body controller is partially reponsible for the difficulty to learn precise manipulation. Figure \ref{fig:tracking-plot} shows tracking error of the right hand during deployment.
+
+
+We are currently working on debugging this issue, but unfortunately, due to the frequent need to repair the robot (see Figure \ref{fig:surgery} for one of the many robot "surgeries"), we are not able to solve it by the thesis due date. The difficulty of performing real-robot experiments on a humanoid platform is the very reason we started out with simulation. Indeed, we have gotten much better results in simulation.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=20em]{surgery.jpeg}
-    \caption{}
+    \caption{During one the experiments, a rod end on the robot's ankle broke. Mingyo created a simulation to test out algorithms since hardware experiments are expensive. }
     \label{fig:surgery}
 \end{figure}
