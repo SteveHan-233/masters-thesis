@@ -17,7 +17,7 @@
 
 \usepackage{../utdiss3}  		% Dissertation package style file.
 
-\emergencystretch=1em
+\emergencystretch=2em
 
 
 
@@ -35,7 +35,7 @@
 \usepackage{graphicx}           % Including graphics
 \usepackage{cite}         	% 
 \usepackage[hyphens]{url}		% Allows good typesetting of web URLs.
-\usepackage{draftcopy}		% Uncomment this line to have the
+%\usepackage{draftcopy}		% Uncomment this line to have the
 				% word, "DRAFT," as a background
 				% "watermark" on all of the pages of
 				% of your draft versions. When ready
@@ -264,11 +264,11 @@
 
 I would like to thank Mingyo Seo and Yuke Zhu for the project idea as well as the guidance they provided along the way. Many of the motivations introduced in Chapter 1 are based on their ideas.
 
-Additionally, acknowledgment is given to Mingyo Seo for creating the simulation, designing the neural network, training the policies, and adapting the whole body control code. All the results in Chapter 5 are obtained by him.
+This work is conducted in partnership with Mingyo Seo, who created the simulation, trained the baseline policies, and adapted the whole body control code. All the results in Chapter 5 besides the data collection are obtained by him.
 
 Chapter 4 would not have been possible without the hardware team (Carlos Isaac Gonzalez and Seung Hyeon Bang), who shared their humanoid setup for us to conduct real-robot experiments and helped us when things went awry.
 
-I would also like to give thanks to Kyutae Sim for helping with the data collection and coding.
+Finally, I would like to give thanks to Kyutae Sim for helping with the data collection and coding.
 \end{acknowledgments}
 
 
@@ -280,7 +280,7 @@ I would also like to give thanks to Kyutae Sim for helping with the data collect
 \utabstract
 \index{Abstract}%
 \indent
-Our world is designed by humans, for humans. This makes humanoid robots the perfect general-purpose platform to automate repetitive or dangerous tasks done by people. However, due to the complexity of humanoid robots and the shortage of demonstration data, research in robot learning for humanoids is scarce. To address these challenges, I present a VR interface named TRILL (TeleopeRation Interface for Learning Loco-manipulation) to collect human demonstrations for humanoid robots in both simulation and reality. The demonstrations are then used to train a baseline imitation learning algorithm that uses an underlying controller to abstract away the complexity of whole-body control. I further propose that by embedding this data collection mechanism in VR video games, we can amass a large-scale dataset of high quality human demonstrations that can drive the development of future autonomous humanoids. To illustrate the feasibility of this idea, we collect a small dataset on toy tasks in simulation and real robot using the VR interface. We then show that the trained policy can be deployed in simulation with a reasonable success rate.
+Our world is designed by humans, for humans. This makes humanoid robots the most suitable general-purpose platform to automate repetitive or dangerous tasks done by people. However, due to the complex dynamics and high degrees-of-freedom of humanoid robots as well as the shortage of demonstration data, research in robot learning for humanoids is scarce. To address these challenges, I present a VR interface named TRILL (TeleopeRation Interface for Learning Loco-manipulation) to collect human demonstrations for humanoid robots in both simulation and reality. The demonstrations are then used to train a baseline Imitation Learning algorithm that uses an underlying controller to abstract away the complexity of whole-body control. I further propose that by embedding this data collection mechanism in VR video games, we can amass a large-scale dataset of high quality human demonstrations that can drive the development of future autonomous humanoids. To illustrate the feasibility of this idea, we collect a small dataset on toy tasks in simulation and real robot using the VR interface. We then show that the trained policy can be deployed in simulation with a reasonable success rate. A video demo of the VR teleoperation can be found here: \url{https://youtu.be/PNZTwtcRhVU}.
 
 
 \tableofcontents   % Table of Contents will be automatically
@@ -309,6 +309,7 @@ Our world is designed by humans, for humans. This makes humanoid robots the perf
 \include{content/chapter-vr-interface}
 \include{content/chapter-real-robot}
 \include{content/chapter-simulation}
+\include{content/chapter-conclusion}
 \include{content/chapter-future-work}
 
 %\include{content/chapter-instructions}
@@ -327,14 +328,14 @@ Our world is designed by humans, for humans. This makes humanoid robots the perf
 % If you have only one appendix, use the command \appendix instead
 % of \appendices.
 %
-\appendices
-\index{Appendices@\emph{Appendices}}%
-
-\include{content/chapter-appendix1}
-
-\include{content/chapter-appendix2}
-
-\include{content/chapter-appendix3}
+%\appendices
+%\index{Appendices@\emph{Appendices}}%
+%
+%\include{content/chapter-appendix1}
+%
+%\include{content/chapter-appendix2}
+%
+%\include{content/chapter-appendix3}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
